@@ -1,7 +1,6 @@
 <?php 
 
-// Ajouter la prise en charge des images mises en avant
-add_theme_support( 'post-thumbnails' );
+
 
 // Ajouter automatiquement le titre du site dans l'en-tête du site
 //add_theme_support( 'title-tag' );
@@ -34,6 +33,9 @@ add_action('wp_enqueue_scripts','load_js');
 //theme Option
 
 add_theme_support('menus');
+// Ajouter la prise en charge des images mises en avant
+add_theme_support( 'post-thumbnails' );
+add_theme_support('widgets');
 
 //Menus
 register_nav_menus(
@@ -45,3 +47,40 @@ register_nav_menus(
                     'mobile-menu' =>'Mobile Menu Location',
                 )
 );
+
+//custom image sizes
+add_image_size('blog-large', 800, 600, false);
+add_image_size('blog-small', 300, 200, true);
+
+//register Sidebars
+function my_sidebars()
+{
+
+    register_sidebar(
+
+            array(
+
+            'name'=>'Page Sidebar',
+            'id'=> 'page-sidebar',
+            'before_title'=> '<h3 class="widget-title">',
+            'after_title' => '</h3>'
+                )
+
+            );
+
+
+    register_sidebar(
+
+            array(
+
+            'name'=>'Blog Sidebar',
+            'id'=> 'blog-sidebar',
+            'before_title'=> '<h3 class="widget-title">',
+            'after_title' => '</h3>'
+                )
+
+        );
+
+
+}
+add_action('widgets_init', 'my_sidebars');
