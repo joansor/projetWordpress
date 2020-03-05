@@ -8,7 +8,7 @@ template Name: Contact US
 <?php get_header();?>
 
 
-
+<section class="page-wrap">
 <div class="container">
 
 <div class="row">
@@ -31,7 +31,7 @@ template Name: Contact US
   
 
 </div>
-
+</section>
 
 
 
