@@ -28,12 +28,32 @@
 
 <ul>
     <li>
-        Colour: <?php echo get_post_meta($post->ID, 'Colour', true);?>
+        Colour: <?php the_field('colour');?>
     </li>
+
+ 
+    <li>
+        Registration: <?php the_field('registration');?>
+    </li>
+    
 </ul>
 
+    <h3>Features</h3>
+<ul>
+    <?php if(have_rows('features')):?>
 
+        <?php
+        while( have_rows('features')): the_row();
+        $feature = get_sub_field('features'); ?>
+    <li>
 
+    <?php echo $feature; ?>
+
+    </li>
+    <?php endwhile;?>
+    <?php endif; ?>
+
+</ul>
 
             </div>
 
