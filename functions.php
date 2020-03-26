@@ -34,21 +34,53 @@ add_action('wp_enqueue_scripts', 'load_js');
 
 //theme Option
 
-add_theme_support('menus');
+add_theme_support('menu');
 // Ajouter la prise en charge des images mises en avant
 add_theme_support('post-thumbnails');
+//ajouter des widgets
 add_theme_support('widgets');
+//ajout d'un l'option background
+add_theme_support('custom-background');
+// ajout option logo
+add_theme_support('custom-logo');
 
-//Menus
-register_nav_menus(
+// //Menus
+
+//menu
+function montheme_supports()
+{
+    register_nav_menu('header', 'En tête du menu');
+    register_nav_menu('footer', 'Pied de page');
+}
+
+add_action('after_setup_theme', 'montheme_supports');
+
+
+ function montheme_menu_class($classes)
+{
+    $classes[] = 'nav-item';
+    return $classes;
+}
+
+function montheme_menu_link_class($attrs)
+{
+    $attrs['class'] = 'nav-link';
+    return $attrs;
+}
+add_filter('nav_menu_css_class', 'montheme_menu_class');
+add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
+
+
+// register_nav_menus(
 
 
 
-    array(
-        'top-menu' => 'Top Menu Location',
-        'mobile-menu' => 'Mobile Menu Location',
-    )
-);
+//     array(
+//         'top-menu' => 'Top Menu Location',
+//         'mobile-menu' => 'Mobile Menu Location',
+//     )
+// );
+
 
 //custom image sizes
 add_image_size('blog-large', 800, 600, false);
@@ -138,7 +170,5 @@ function my_first_taxonomy()
 
 add_action('init', 'my_first_taxonomy');
 
-//ajout d'un l'option background
-add_theme_support('custom-background');
-// ajout option logo
-add_theme_support('custom-logo');
+
+
