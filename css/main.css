@@ -12,7 +12,12 @@
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
 }
+input:focus{
 
+    border-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 1px 1px rgb(255, 255, 255) inset, 0 0 8px rgb(255, 255, 255);
+    outline: 0 none;
+}
 a{
 
     color: black;
@@ -22,7 +27,11 @@ a:hover{
     color: red;
     text-decoration: none;
 }
+.navbar-light .navbar-nav .nav-link{
 
+    color: rgb(124, 124, 124);
+    font-weight: bold;
+}
 .navbar-light .navbar-nav .nav-link:hover{
 
     color: red;
