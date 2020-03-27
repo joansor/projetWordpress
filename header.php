@@ -20,7 +20,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                 
                     <?php wp_nav_menu(
 
@@ -29,6 +29,7 @@
                             'theme_location' => 'header',
                             'container' => false,
                             'menu_class' => 'navbar-nav mr-auto',
+                            'item_spacing' => 'discard'
                         )
 
                     );

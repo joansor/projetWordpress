@@ -1,11 +1,5 @@
 <?php
-
-
-
-// Ajouter automatiquement le titre du site dans l'en-tête du site
-//add_theme_support( 'title-tag' );
-
-
+// ajout du css et bootstrap
 function load_css()
 {
 
@@ -20,6 +14,7 @@ function load_css()
 
 add_action('wp_enqueue_scripts', 'load_css');
 
+// ajout du jquery bootstrap
 function load_js()
 {
 
@@ -55,13 +50,13 @@ function montheme_supports()
 
 add_action('after_setup_theme', 'montheme_supports');
 
-
+//permet d'ajouter une class a ma navbar
  function montheme_menu_class($classes)
 {
     $classes[] = 'nav-item';
     return $classes;
 }
-
+//permet d'ajouter une class a mon <a> de ma nav
 function montheme_menu_link_class($attrs)
 {
     $attrs['class'] = 'nav-link';
@@ -69,17 +64,6 @@ function montheme_menu_link_class($attrs)
 }
 add_filter('nav_menu_css_class', 'montheme_menu_class');
 add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
-
-
-// register_nav_menus(
-
-
-
-//     array(
-//         'top-menu' => 'Top Menu Location',
-//         'mobile-menu' => 'Mobile Menu Location',
-//     )
-// );
 
 
 //custom image sizes

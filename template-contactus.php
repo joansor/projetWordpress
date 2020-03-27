@@ -15,7 +15,7 @@ template Name: Contact US
 
         <div class="col-lg-6">
         
-        ceci est mon nouveau contenu Contactez nous
+        ceci est mon template-contactus !!
         </div>
 
         <div class="col-lg-6">
